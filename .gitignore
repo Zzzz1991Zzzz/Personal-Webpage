@@ -1,0 +1,13 @@
+# Kept locally only: paper PDFs (submissions under review; large files)
+# and the reference CV used as a template
+papers/
+Hargen_Zheng_CV.pdf
+
+# LaTeX build artifacts (the compiled CV is copied to the site root)
+cv/*.aux
+cv/*.log
+cv/*.out
+cv/*.pdf
+
+# Original photo (the cropped web copy is assets/profile.jpg)
+personal picture.jpg

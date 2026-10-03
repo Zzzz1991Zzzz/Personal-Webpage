@@ -1,0 +1,175 @@
+% Yang Zhang -- Curriculum Vitae
+% Build:  cd cv && pdflatex Yang_Zhang_CV.tex   (or run ./build.sh)
+% The four .sty files in this folder are vendored copies from CTAN so the
+% CV compiles on a minimal TeX install; they are ignored if your TeX
+% distribution already provides them.
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.55in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue,
+  pdftitle={Yang Zhang -- CV}, pdfauthor={Yang Zhang}}
+
+\definecolor{linkblue}{HTML}{1F5F8B}
+\definecolor{rule}{HTML}{555555}
+
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.0}
+\setlength{\emergencystretch}{3em}
+
+% Section headings: small caps title with a rule beneath.
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[\vspace{-6pt}\rule{\linewidth}{0.6pt}]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+% Compact lists.
+\setlist[itemize]{leftmargin=1.2em, itemsep=1.5pt, parsep=0pt, topsep=2pt, label=\textbullet}
+
+% Entry header: left = bold title, right = dates; second line optional.
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\
+    #3 & #4 \\
+  \end{tabularx}\par}
+\newcommand{\entryone}[2]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\
+  \end{tabularx}\par}
+
+% Publication entry: number, title, links, authors, venue, summary.
+\newcommand{\pub}[5]{%
+  \item \textbf{#1} #2\\
+  #3\\
+  #4\\
+  \textit{Summary:} #5}
+
+\newcommand{\me}{\textbf{Yang Zhang}}
+\newcommand{\lk}[2]{\href{#1}{[#2]}}
+
+\begin{document}
+
+% ---------------------------------------------------------------- Header
+\begin{center}
+  {\LARGE\bfseries Yang Zhang}\\[4pt]
+  \href{mailto:yaz124@ucsd.edu}{yaz124@ucsd.edu} \,|\,
+  +1 858 241 5918 \,|\,
+  \href{https://zzzz1991zzzz.github.io/Personal-Webpage/}{zzzz1991zzzz.github.io/Personal-Webpage} \,|\,
+  \href{https://github.com/Zzzz1991Zzzz}{github.com/Zzzz1991Zzzz}
+\end{center}
+
+% ---------------------------------------------------------------- Education
+\section{Education}
+\entry{University of California San Diego}{Dec.\ 2025 -- Present}
+      {M.S.\ in Computer Engineering; GPA 3.94/4.0}{La Jolla, CA}
+\vspace{2pt}
+\entry{University of Electronic Science and Technology of China (UESTC)}{Sept.\ 2021 -- Jun.\ 2025}
+      {B.Eng.\ in Communication Engineering; GPA 3.8/4.0 (top 10\%)}{Chengdu, China}
+\begin{itemize}
+  \item Coursework: Artificial Intelligence and Machine Learning, Stochastic Signal Analysis, Communication Networks, Embedded Processors.
+  \item GRE 330; IELTS 8.0.
+\end{itemize}
+
+% ---------------------------------------------------------------- Interests
+\section{Research Interests}
+Natural language processing, large language models, and reinforcement learning: RL post-training with verifiable rewards (GRPO/RLVR) for LLM reasoning; synthetic data and self-evolving curricula; the token and compute budgets behind post-training and inference; contamination-free evaluation and benchmark construction; interpretability of the computations learned by language models.
+
+% ---------------------------------------------------------------- Publications
+\section{Publications and Preprints}
+* denotes equal contribution.
+\begin{enumerate}[leftmargin=1.9em, label={[\arabic*]}, itemsep=3pt, parsep=0pt, topsep=3pt]
+
+  \pub{What Do Rollout Tokens Buy? Hidden Costs and Budgeted Accuracy in RLVR}{}
+      {\me{} and co-authors (author list to be added).}  % TODO: fill in author list
+      {Under review at ICLR 2027.}
+      {In RLVR on competition mathematics, more rollout tokens do not buy more correct answers; we propose judging training choices by the tokens they add on unchanged problems and by the answers returned under a fixed token budget.}
+
+  \pub{Latent Assembly: Causal Discovery and Cross-Task Linking of Executable Operations in Language Models}{}
+      {\me{} and co-authors (author list to be added).}  % TODO: fill in author list
+      {Under review at ICLR 2027.}
+      {A causal framework that decompiles language-model computation into typed states, executable operations, and the neural interfaces between them, and links independently discovered operations into new programs.}
+
+  \pub{DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations}{\lk{https://arxiv.org/abs/2604.23054}{arXiv}\lk{https://github.com/deepimagine-counterfactual/DeepImagine}{code}}
+      {Youze Zheng*, Jianyou Wang*, Yuhan Chen*, Matthew Feng, Longtian Bao, Hanyuan Zhang, Maxim Khan, Aditya K.\ Sehgal, Christopher D.\ Rosin, Umber Dube, Ramamohan Paturi.}  % TODO: insert Yang Zhang at the correct position (arXiv v2 list shown)
+      {Under review at ICLR 2027; arXiv preprint, 2026.}
+      {Predicts clinical-trial outcomes by imagining, one factor at a time, how a historical trial's observed result would change toward the target trial; beats direct prediction across off-the-shelf LLMs.}
+
+  \pub{Question Begets Question: Self-Evolving Curriculum for Reinforcement Fine-Tuning on Competition Mathematics}{\lk{https://arxiv.org/abs/2608.01522}{arXiv}}
+      {Longtian Bao*, Jianyou Wang*, \me*, Youze Zheng*, Ramamohan Paturi.}
+      {Under review at AAAI 2027; arXiv preprint, 2026.}
+      {A self-evolving curriculum of teacher-generated problem variants for RL-only fine-tuning; lifts Qwen2.5-Math-7B pass@1 on AIME from 5.6\% to 16.5\% under a fixed data budget, breaking the plateau of static augmentation.}
+
+  \pub{CT Open: An Open-Access, Uncontaminated, Live Platform for the Open Challenge of Clinical Trial Outcome Prediction}{\lk{https://arxiv.org/abs/2604.16742}{arXiv}\lk{https://ct-open.net/}{website}\lk{https://github.com/ClinicalTrial-OpenChallenge/CT_Open}{code}}
+      {Jianyou Wang*, Youze Zheng*, Longtian Bao*, Hanyuan Zhang*, Qirui Zheng, Yuhan Chen, \me, Matthew Feng, Maxim Khan, Aditya K.\ Sehgal, Christopher D.\ Rosin, Ramamohan Paturi, Umber Dube, Leon Bergen.}
+      {\textbf{COLM 2026}.}
+      {A live, contamination-free benchmark for prospective clinical-trial outcome forecasting, backed by an automated, expert-validated decontamination pipeline; releases a training set and two time-stamped test sets.}
+
+  \pub{Improved RT-DETR Based on MobileNetV4 for Vehicle Detection}{\lk{https://doi.org/10.1109/ICAACE65325.2025.11019497}{IEEE Xplore}}
+      {\me.}
+      {\textbf{ICAACE 2025} (2025 8th International Conference on Advanced Algorithms and Control Engineering), IEEE.}
+      {A MobileNetV4 backbone for RT-DETR that keeps detection accuracy with 65\% fewer parameters and 75\% less computation than RT-DETR-L.}
+
+\end{enumerate}
+
+% ---------------------------------------------------------------- Research experience
+\section{Research Experience}
+\entry{Laboratory for Emerging Intelligence, UC San Diego}{2026 -- Present}
+      {Research Assistant; advisors: Prof.\ Ramamohan Paturi and Prof.\ Leon Bergen}{La Jolla, CA}
+\begin{itemize}
+  \item \textbf{RL post-training for reasoning (Question Begets Question, co-first author):} built a self-evolving curriculum for RL fine-tuning of Qwen2.5-Math-7B on AIME using only problem statements and final answers; teacher-generated variants seeded from problems the current checkpoint can mostly solve lift pass@1 from 5.6\% to 16.5\% under a fixed data budget (static augmentation plateaus at 12.5--14.5\%).
+  \item \textbf{Cost-aware RLVR (What Do Rollout Tokens Buy?):} measured the hidden token costs of RLVR training choices on SmolLM3-3B and Qwen3.5-9B: a harder training mix doubles response length on unchanged problems, while halving the training response limit cuts compute by 28\% and raises majority-vote accuracy from 36.1\% to 43.5\% under a fixed evaluation budget.
+  \item \textbf{Contamination-free evaluation (CT Open, COLM 2026):} contributed to a live clinical-trial outcome prediction platform and its automated decontamination pipeline (iterative LLM web search, temporal filters, expert validation) that timestamps the earliest public mention of each trial outcome; released a training set and two time-stamped test benchmarks.
+  \item \textbf{Counterfactual reasoning (DeepImagine):} contributed to a stepwise local counterfactual imagination framework for clinical-trial outcome prediction and to training a family of specialized per-factor language models on natural counterfactuals with synthetic reasoning traces.
+  \item \textbf{Mechanistic interpretability (Latent Assembly):} contributed to a causal framework that recovers typed program states and executable operations from unlabeled activations in Qwen, Gemma, and Llama models and links independently discovered operations into a three-operation chain reaching 84\% accuracy with no target-task fitting.
+\end{itemize}
+\vspace{2pt}
+\entry{Institute of Computing Technology, Chinese Academy of Sciences}{Jul.\ 2024 -- Aug.\ 2024}
+      {Research Assistant, State Key Laboratory of Processors}{Beijing, China}
+\begin{itemize}
+  \item Developed and optimized image signal processing algorithms (noise reduction, sharpening, color correction) in Python, MATLAB, and C for embedded systems built around CMOS image sensors.
+\end{itemize}
+\vspace{2pt}
+\entry{Institute of Computing Technology, Chinese Academy of Sciences}{Aug.\ 2023 -- Nov.\ 2023}
+      {Research Assistant, Center for Advanced Computer Systems}{Beijing, China}
+\begin{itemize}
+  \item Improved the Maximum Information Coefficient (MIC) algorithm for identifying and visualizing correlations across datasets, and optimized the data-processing workflow for accuracy and efficiency.
+\end{itemize}
+
+% ---------------------------------------------------------------- Projects
+\section{Selected Projects}
+\entryone{Vehicle Detection with Improved RT-DETR Based on MobileNetV4}{Apr.\ 2024 -- Sept.\ 2024}
+\begin{itemize}
+  \item Replaced the RT-DETR backbone with a lightweight MobileNetV4 for real-time vehicle detection on edge devices: 11M parameters and 38 GFLOPs, 65\%/75\% fewer parameters/GFLOPs than RT-DETR-L and 45\%/54\% fewer than RT-DETR-R18, at comparable accuracy on a COCO-format vehicle dataset. Published at ICAACE 2025 [6].
+\end{itemize}
+
+% ---------------------------------------------------------------- Honors
+\section{Honors and Awards}
+\begin{itemize}
+  \item UESTC Merit Scholarship for Exceptional Student (top 10\%), Oct.\ 2024.
+  \item UESTC Merit Scholarship (top 30\%), Oct.\ 2022 and Oct.\ 2023.
+  \item Hainan Free Trade Port Merit Scholarship (top 10\%), Jan.\ 2022.
+\end{itemize}
+
+% ---------------------------------------------------------------- Service
+\section{Service}
+\begin{itemize}
+  \item Student Volunteer (session monitor), ACL 2026 (64th Annual Meeting of the Association for Computational Linguistics), San Diego, CA, Jul.\ 2026.
+\end{itemize}
+
+% ---------------------------------------------------------------- Skills
+\section{Technical Skills}
+\begin{itemize}
+  \item \textbf{Languages:} Python, C, MATLAB, Bash, \LaTeX.
+  \item \textbf{ML/LLM frameworks and tools:} PyTorch, Hugging Face Transformers, NumPy, pandas, scikit-learn, Git.
+  \item \textbf{LLM methods:} RL with verifiable rewards (GRPO/RLVR), supervised fine-tuning, synthetic data and curriculum learning, pass@\emph{k} and majority-vote evaluation, benchmark construction and decontamination, LLM-as-judge, interpretability.
+  \item \textbf{Computer vision:} real-time object detection (RT-DETR, MobileNetV4); image signal processing.
+\end{itemize}
+
+\end{document}
