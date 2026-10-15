@@ -50,6 +50,10 @@
   #3\\
   #4\\
   \textit{Summary:} #5}
+\newcommand{\pubnoauthors}[4]{%
+  \item \textbf{#1} #2\\
+  #3\\
+  \textit{Summary:} #4}
 
 \newcommand{\me}{\textbf{Yang Zhang}}
 \newcommand{\lk}[2]{\href{#1}{[#2]}}
@@ -88,22 +92,21 @@ Natural language processing, large language models, and reinforcement learning: 
 
   \pub{What Do Rollout Tokens Buy? Hidden Costs and Budgeted Accuracy in RLVR}{}
       {\me{} and co-authors (author list to be added).}  % TODO: fill in author list
-      {Under review at ICLR 2027.}
+      {Under review.}
       {In RLVR on competition mathematics, more rollout tokens do not buy more correct answers; we propose judging training choices by the tokens they add on unchanged problems and by the answers returned under a fixed token budget.}
 
   \pub{Latent Assembly: Causal Discovery and Cross-Task Linking of Executable Operations in Language Models}{}
       {\me{} and co-authors (author list to be added).}  % TODO: fill in author list
-      {Under review at ICLR 2027.}
+      {Under review.}
       {A causal framework that decompiles language-model computation into typed states, executable operations, and the neural interfaces between them, and links independently discovered operations into new programs.}
 
-  \pub{DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations}{\lk{https://arxiv.org/abs/2604.23054}{arXiv}\lk{https://github.com/deepimagine-counterfactual/DeepImagine}{code}}
-      {Youze Zheng*, Jianyou Wang*, Yuhan Chen*, Matthew Feng, Longtian Bao, Hanyuan Zhang, Maxim Khan, Aditya K.\ Sehgal, Christopher D.\ Rosin, Umber Dube, Ramamohan Paturi.}  % TODO: insert Yang Zhang at the correct position (arXiv v2 list shown)
-      {Under review at ICLR 2027; arXiv preprint, 2026.}
+  \pubnoauthors{DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations}{\lk{https://arxiv.org/abs/2604.23054}{arXiv}\lk{https://github.com/deepimagine-counterfactual/DeepImagine}{code}}
+      {Under review; arXiv preprint, 2026.}
       {Predicts clinical-trial outcomes by imagining, one factor at a time, how a historical trial's observed result would change toward the target trial; beats direct prediction across off-the-shelf LLMs.}
 
   \pub{Question Begets Question: Self-Evolving Curriculum for Reinforcement Fine-Tuning on Competition Mathematics}{\lk{https://arxiv.org/abs/2608.01522}{arXiv}}
       {Longtian Bao*, Jianyou Wang*, \me*, Youze Zheng*, Ramamohan Paturi.}
-      {Under review at AAAI 2027; arXiv preprint, 2026.}
+      {Under review; arXiv preprint, 2026.}
       {A self-evolving curriculum of teacher-generated problem variants for RL-only fine-tuning; lifts Qwen2.5-Math-7B pass@1 on AIME from 5.6\% to 16.5\% under a fixed data budget, breaking the plateau of static augmentation.}
 
   \pub{CT Open: An Open-Access, Uncontaminated, Live Platform for the Open Challenge of Clinical Trial Outcome Prediction}{\lk{https://arxiv.org/abs/2604.16742}{arXiv}\lk{https://ct-open.net/}{website}\lk{https://github.com/ClinicalTrial-OpenChallenge/CT_Open}{code}}
@@ -121,7 +124,7 @@ Natural language processing, large language models, and reinforcement learning: 
 % ---------------------------------------------------------------- Research experience
 \section{Research Experience}
 \entry{Laboratory for Emerging Intelligence, UC San Diego}{2026 -- Present}
-      {Research Assistant; advisors: Prof.\ Ramamohan Paturi and Prof.\ Leon Bergen}{La Jolla, CA}
+      {Research Assistant; advisor: Prof.\ Ramamohan Paturi}{La Jolla, CA}
 \begin{itemize}
   \item \textbf{RL post-training for reasoning (Question Begets Question, co-first author):} built a self-evolving curriculum for RL fine-tuning of Qwen2.5-Math-7B on AIME using only problem statements and final answers; teacher-generated variants seeded from problems the current checkpoint can mostly solve lift pass@1 from 5.6\% to 16.5\% under a fixed data budget (static augmentation plateaus at 12.5--14.5\%).
   \item \textbf{Cost-aware RLVR (What Do Rollout Tokens Buy?):} measured the hidden token costs of RLVR training choices on SmolLM3-3B and Qwen3.5-9B: a harder training mix doubles response length on unchanged problems, while halving the training response limit cuts compute by 28\% and raises majority-vote accuracy from 36.1\% to 43.5\% under a fixed evaluation budget.

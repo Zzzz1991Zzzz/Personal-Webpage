@@ -23,7 +23,7 @@ window.profileData = {
   },
 
   bio: [
-    'I am a master\'s student in Computer Engineering at UC San Diego, where I work with <a href="https://cseweb.ucsd.edu/~paturi/" target="_blank" rel="noopener">Ramamohan Paturi</a> and Leon Bergen at the Laboratory for Emerging Intelligence. My research interests are in natural language processing, large language models, and reinforcement learning. I am particularly interested in reinforcement learning with verifiable rewards for LLM reasoning, the data and compute budgets behind post-training, and rigorous, contamination-free evaluation of language models.',
+    'I am a master\'s student in Computer Engineering at UC San Diego, where I work with <a href="https://cseweb.ucsd.edu/~paturi/" target="_blank" rel="noopener">Ramamohan Paturi</a> at the Laboratory for Emerging Intelligence. My research interests are in natural language processing, large language models, and reinforcement learning. I am particularly interested in reinforcement learning with verifiable rewards for LLM reasoning, the data and compute budgets behind post-training, and rigorous, contamination-free evaluation of language models.',
     'Recent work includes <a href="https://arxiv.org/abs/2608.01522" target="_blank" rel="noopener">Question Begets Question</a>, a self-evolving curriculum for reinforcement fine-tuning on competition mathematics; <a href="https://arxiv.org/abs/2604.16742" target="_blank" rel="noopener">CT Open</a> (COLM 2026), a live, uncontaminated benchmark for clinical trial outcome prediction; and ongoing projects on what rollout tokens buy in RLVR and on discovering executable operations inside language models.',
     'Before UC San Diego, I received my B.Eng. in Communication Engineering from the University of Electronic Science and Technology of China (UESTC), where I worked on efficient real-time object detection.',
   ],
@@ -51,8 +51,8 @@ window.profileData = {
       title: "What Do Rollout Tokens Buy? Hidden Costs and Budgeted Accuracy in RLVR",
       // TODO: author list (the submission PDF is anonymized).
       authors: null,
-      venue: "ICLR 2027",
-      status: "Under review",
+      venue: "Under review",
+      status: null,
       venueNote: null,
       tldr: "In reinforcement learning with verifiable rewards on competition mathematics, more rollout tokens do not mean more correct answers. Replacing a third of a SmolLM3-3B training set with harder problems doubles response length on the unchanged problems at a similar training reward; halving the training response limit of Qwen3.5-9B cuts training compute by 28% while raising majority-vote accuracy from 36.1% to 43.5%; and counting problems with any correct sample versus the answer a model actually returns can rank a base model and its RL-trained version in opposite orders. We suggest judging RLVR training choices by the tokens they add on unchanged problems and by the answers returned under a fixed token budget.",
       paper: null,
@@ -64,8 +64,8 @@ window.profileData = {
       title: "Latent Assembly: Causal Discovery and Cross-Task Linking of Executable Operations in Language Models",
       // TODO: author list (the submission PDF is anonymized).
       authors: null,
-      venue: "ICLR 2027",
-      status: "Under review",
+      venue: "Under review",
+      status: null,
       venueNote: null,
       tldr: "A causal framework that decompiles language-model computation into typed program states, state-dependent operations, and the neural interfaces through which one operation's output becomes another's input. It recovers ground-truth operation classes in controlled transformers and discovers SELECT and LOAD operations in pretrained Qwen, Gemma, and Llama models. Three operations discovered independently on separate tasks can be linked into a chain that executes a new task at 84% accuracy with no target-task fitting, exceeding Qwen 14B's zero-shot performance.",
       paper: null,
@@ -75,31 +75,21 @@ window.profileData = {
     },
     {
       title: "DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations",
-      // TODO: the arXiv v2 author list (below) does not include Yang Zhang;
-      // insert your name at the correct position for the ICLR version.
-      authors: "Youze Zheng*, Jianyou Wang*, Yuhan Chen*, Matthew Feng, Longtian Bao, Hanyuan Zhang, Maxim Khan, Aditya K. Sehgal, Christopher D. Rosin, Umber Dube, Ramamohan Paturi",
-      venue: "ICLR 2027",
-      status: "Under review",
+      authors: null,
+      venue: "Under review",
+      status: null,
       venueNote: null,
       tldr: "Predicts the outcome of a target clinical trial by starting from a historical trial with observed results and asking a language model, one differing factor at a time, how the imagined outcome changes. This stepwise local counterfactual imagination beats direct one-step prediction and traditional outcome predictors across off-the-shelf LLMs, improves further when multiple imagination pathways from different anchors are aggregated, and improves again when specialized per-factor models trained on natural counterfactuals with synthetic reasoning traces replace the general-purpose LLM.",
       paper: "https://arxiv.org/abs/2604.23054",
       website: null,
       code: "https://github.com/deepimagine-counterfactual/DeepImagine",
-      citation: `@misc{zheng2026deepimagine,
-  title={DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations},
-  author={Youze Zheng and Jianyou Wang and Yuhan Chen and Matthew Feng and Longtian Bao and Hanyuan Zhang and Maxim Khan and Aditya K. Sehgal and Christopher D. Rosin and Umber Dube and Ramamohan Paturi},
-  year={2026},
-  eprint={2604.23054},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL},
-  url={https://arxiv.org/abs/2604.23054}
-}`,
+      citation: null,
     },
     {
       title: "Question Begets Question: Self-Evolving Curriculum for Reinforcement Fine-Tuning on Competition Mathematics",
       authors: "Longtian Bao*, Jianyou Wang*, <strong>Yang Zhang*</strong>, Youze Zheng*, Ramamohan Paturi",
-      venue: "AAAI 2027",
-      status: "Under review",
+      venue: "Under review",
+      status: null,
       venueNote: null,
       tldr: "Fine-tuning Qwen2.5-Math-7B on AIME (initially 5.6% pass@1) with reinforcement learning on problem statements and final answers only, never on teacher reasoning traces. Question-begets-Question (QbQ) has a teacher rewrite existing problems into diverse variants that probe the same skills; static training on such data plateaus at 12.5-14.5%. A self-evolving curriculum that each round seeds QbQ from the problems the current checkpoint can mostly solve breaks this ceiling and reaches 16.5% pass@1 under an identical data budget, with no sign of saturation after 20 rounds, and the model goes on to solve harder problems never seen in training.",
       paper: "https://arxiv.org/abs/2608.01522",
