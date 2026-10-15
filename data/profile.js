@@ -149,6 +149,16 @@ window.profileData = {
   */
   service: [
     {
+      role: "Reviewer",
+      venue: "ICLR 2027",
+      meta: null,
+    },
+    {
+      role: "Reviewer",
+      venue: "AAAI 2027",
+      meta: null,
+    },
+    {
       role: "Student Volunteer (session monitor)",
       venue: "ACL 2026",
       meta: "San Diego, CA, July 2026",
@@ -156,6 +166,6 @@ window.profileData = {
   ],
 
   footer: {
-    updated: "September 2026",
+    updated: "October 2026",
   },
 };
