@@ -17,3 +17,6 @@ My paper/
 
 # Finder metadata
 .DS_Store
+
+# Claude Code local config
+.claude/

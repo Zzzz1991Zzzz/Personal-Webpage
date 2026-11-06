@@ -115,9 +115,8 @@ window.profileData = {
     {
       id: "deepimagine",
       title: "DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations",
-      // TODO: confirm the author list of the ICLR 2027 submission
-      // (the arXiv v1 author list does not include Yang Zhang).
-      authors: null,
+      // Double-blind submission: co-authors withheld until the review ends.
+      authors: "<strong>Yang&nbsp;Zhang</strong>, et&nbsp;al. (co-authors withheld during double-blind review)",
       venue: "arXiv 2026",
       award: null,
       thumb: { src: "assets/pubs/deepimagine.png", alt: "Diagram: DeepImagine changes one trial factor at a time, from a historical trial with an observed result to the target trial", width: 1200, height: 462 },
