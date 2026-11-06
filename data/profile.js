@@ -16,12 +16,14 @@
 window.profileData = {
   basics: {
     name: "Yang Zhang",
+    tagline: "M.S. student in Computer Engineering, UC San Diego",
+    location: "San Diego, CA",
     email: "yaz124@ucsd.edu",
     emailDisplay: "yaz124 [at] ucsd [dot] edu",
     // Header links. Set a value to null to hide that link.
-    scholar: null, // TODO: Google Scholar profile URL
-    linkedin: null, // TODO: LinkedIn profile URL
-    github: "https://github.com/Zzzz1991Zzzz",
+    scholar: "https://scholar.google.com/citations?user=IVB_6X4AAAAJ&hl=en",
+    linkedin: "https://www.linkedin.com/in/yang-zhang-8b2181442/",
+    github: null,
     cv: "Yang_Zhang_CV.pdf",
     // Square portrait; the block is hidden automatically if the file is missing.
     portrait: "assets/profile.jpg",
@@ -32,14 +34,30 @@ window.profileData = {
     'Before UC San Diego, I received my B.Eng. in Communication Engineering from the University of Electronic Science and Technology of China (UESTC), where I worked on real-time object detection.',
   ],
 
+  /* Education entries: { degree, school, note, when }. */
+  education: [
+    {
+      degree: "M.S. in Computer Engineering",
+      school: "University of California San Diego",
+      note: "Advisor: Ramamohan Paturi",
+      when: "Dec. 2025 – Present",
+    },
+    {
+      degree: "B.Eng. in Communication Engineering",
+      school: "University of Electronic Science and Technology of China (UESTC)",
+      note: null,
+      when: "Sept. 2021 – Jun. 2025",
+    },
+  ],
+
   /*
     Each interest is HTML. Write [[id]] or [[id1,id2]] to cite publications
     by their `id`; the script replaces it with numbered links.
   */
   interests: [
     '<b>LLM post-training and reasoning.</b> Reinforcement learning with verifiable rewards on competition mathematics: what the rollout tokens actually buy [[rollout-tokens]], and self-evolving curricula of synthetic problems that break the ceiling of static training [[qbq]].',
-    '<b>Efficient LLM serving.</b> KV-cache compression and fused kernels for serving looped transformers, where precision has to be allocated per (loop, layer) cell [[loopkv]].',
     '<b>AI for science.</b> Forecasting clinical trial outcomes before they become public, through a live, uncontaminated benchmark [[ct-open]] and stepwise counterfactual imagination [[deepimagine]].',
+    '<b>Efficient LLM serving.</b> KV-cache compression and fused kernels for serving looped transformers, where precision has to be allocated per (loop, layer) cell [[loopkv]].',
     '<b>Interpretability.</b> Decompiling language-model computation into executable operations that can be linked into new programs [[latent-assembly]].',
   ],
 
@@ -163,8 +181,8 @@ window.profileData = {
       authors: "<strong>Yang&nbsp;Zhang</strong>",
       venue: "ICAACE 2025",
       award: null,
-      thumb: null,
-      tldr: "A MobileNetV4 backbone for RT-DETR keeps vehicle-detection accuracy on a COCO-format dataset with 11M parameters and 38 GFLOPs: 65% fewer parameters and 75% less computation than RT-DETR-L.",
+      thumb: { src: "assets/pubs/rt-detr.jpg", alt: "Diagram: RT-DETR with its backbone replaced by MobileNetV4-Small/Medium, feeding the efficient hybrid encoder, query selection and decoder", width: 1200, height: 386 },
+      tldr: "Replacing the RT-DETR backbone with MobileNetV4 gives a real-time vehicle detector for edge devices: the Small variant reaches 97.3 mAP50 with 11M parameters and 27 GFLOPs (65% fewer parameters and 75% less computation than RT-DETR-L), and the Medium variant reaches 98.4 mAP50 / 78.7 mAP50-95, the highest of 23 compared detectors, at 17M parameters and 38 GFLOPs.",
       paper: "https://doi.org/10.1109/ICAACE65325.2025.11019497",
       website: null,
       code: null,
@@ -173,10 +191,19 @@ window.profileData = {
   title={Improved RT-DETR Based on MobileNetV4 for Vehicle Detection},
   author={Yang Zhang},
   booktitle={2025 8th International Conference on Advanced Algorithms and Control Engineering (ICAACE)},
+  pages={901--906},
   year={2025},
   organization={IEEE},
   doi={10.1109/ICAACE65325.2025.11019497}}`,
     },
+  ],
+
+  /* Honors: { text, note, when }. */
+  honors: [
+    { text: "1st Place, UCSD x Medeloop Health Research Competition", note: null, when: "2026" },
+    { text: "UESTC Merit Scholarship for Exceptional Student (top 10%)", note: null, when: "2024" },
+    { text: "UESTC Merit Scholarship (top 30%)", note: null, when: "2022, 2023" },
+    { text: "Hainan Free Trade Port Merit Scholarship (top 10%)", note: null, when: "2022" },
   ],
 
   /* Service entries: { role, venue, when }. */

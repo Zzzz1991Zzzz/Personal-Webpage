@@ -1,7 +1,7 @@
 /*
-  Single-column academic homepage.
-  White background, Helvetica/Arial, UC San Diego blue for links,
-  a 200px figure column beside each publication.
+  Two-column academic homepage: a sticky left sidebar (photo, name,
+  contact links) and a content column. White background, Helvetica/Arial,
+  UC San Diego blue for links, a 200px figure column beside each publication.
 */
 :root {
   --ink: #111216;
@@ -12,10 +12,10 @@
   --muted: #5c636b;
   --edge: #e6e8eb;
   --radius: 10px;
-  --w: 848px;
-  --indent: 16px;
+  --w: 1120px;
+  --side: 210px;
+  --gutter: 56px;
   --col: 200px;
-  --photo: 188px;
   --gut: 32px;
   --key: 150px;
 }
@@ -35,12 +35,6 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 26px;
-}
-
-.wrap {
-  width: min(var(--w), calc(100vw - 32px));
-  margin: 0 auto;
-  padding-bottom: 48px;
 }
 
 a {
@@ -65,79 +59,122 @@ button:focus-visible {
   font-weight: 500;
 }
 
-/* ── Top bar ─────────────────────────────────── */
+/* ── Layout ──────────────────────────────────── */
 
-.topbar {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-  padding: 44px 0 0;
+.layout {
+  display: grid;
+  grid-template-columns: var(--side) minmax(0, 1fr);
+  column-gap: var(--gutter);
+  width: min(var(--w), calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 48px 0 56px;
 }
 
-.name {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 30px;
-  line-height: 42px;
-  font-weight: 400;
-  color: var(--ink);
-  margin: 0;
+/* ── Sidebar ─────────────────────────────────── */
+
+.sidebar {
+  position: sticky;
+  top: 40px;
+  align-self: start;
 }
 
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 26px;
-  font-size: 18px;
+.avatar {
+  width: 170px;
+  margin-bottom: 14px;
 }
 
-.nav a {
-  color: var(--ink);
-}
-
-.nav a:hover {
-  color: var(--blue);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-/* ── Intro ───────────────────────────────────── */
-
-.intro {
-  display: flex;
-  gap: calc(var(--col) + var(--gut) - var(--photo));
-  margin-top: 28px;
-  align-items: center;
-}
-
-.face {
-  flex: 0 0 var(--photo);
-}
-
-.face img {
+.avatar img {
   width: 100%;
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
-  border-radius: var(--radius);
+  border-radius: 50%;
   border: 1px solid var(--edge);
   box-shadow: 0 1px 2px #1112160f;
 }
 
-.bio {
-  flex: 1;
-  min-width: 0;
+.name {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.tagline {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.links-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--edge);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.links-list li {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 0;
+  color: var(--muted);
+}
+
+.links-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--ink);
+}
+
+.links-list a:hover {
+  color: var(--blue);
+}
+
+.links-list svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  fill: currentColor;
+  color: var(--muted);
+}
+
+.links-list a:hover svg {
+  color: var(--blue);
+}
+
+/* ── Content ─────────────────────────────────── */
+
+.content {
+  min-width: 0;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+  margin: 48px 0 12px;
+}
+
+.content > h2:first-child {
+  margin-top: 0;
+}
+
+.note {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--muted);
+  margin: 0 0 12px;
 }
 
 .bio p {
   margin: 0 0 14px;
-  font-size: 16px;
-  line-height: 26px;
   text-wrap: pretty;
 }
 
@@ -153,30 +190,6 @@ button:focus-visible {
 .bio a:hover {
   color: var(--blue);
   text-decoration: none;
-}
-
-/* ── Sections ────────────────────────────────── */
-
-h2 {
-  font-size: 24px;
-  line-height: 36px;
-  margin: 56px 0 12px;
-}
-
-.note {
-  font-size: 14px;
-  line-height: 21px;
-  color: var(--muted);
-  margin: 0 0 12px;
-}
-
-.intro,
-.interests,
-.note,
-.pub,
-.service,
-.foot {
-  margin-left: var(--indent);
 }
 
 /* ── Interests ───────────────────────────────── */
@@ -206,6 +219,40 @@ h2 {
 
 .ref {
   color: var(--blue);
+  white-space: nowrap;
+}
+
+/* ── Row lists (education, honors, service) ──── */
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rows li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) fit-content(220px);
+  align-items: baseline;
+  gap: 0 16px;
+  padding: 4px 0;
+}
+
+.rows .main {
+  min-width: 0;
+}
+
+.rows .sub {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.rows .t {
+  color: var(--muted);
+  font-size: 14px;
+  text-align: right;
   white-space: nowrap;
 }
 
@@ -416,36 +463,10 @@ h2 {
   overflow-wrap: anywhere;
 }
 
-/* ── Service ─────────────────────────────────── */
-
-.service {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.service li {
-  display: grid;
-  grid-template-columns: var(--key) minmax(0, 1fr) fit-content(240px);
-  align-items: baseline;
-  gap: 0 12px;
-  padding: 3px 0;
-}
-
-.service .k {
-  white-space: nowrap;
-}
-
-.service .t {
-  color: var(--muted);
-  font-size: 14px;
-  text-align: right;
-}
-
 /* ── Footer ──────────────────────────────────── */
 
 .foot {
-  margin-top: 56px;
+  margin-top: 48px;
   padding-top: 14px;
   border-top: 1px solid var(--edge);
   color: var(--muted);
@@ -526,57 +547,47 @@ h2 {
 
 /* ── Responsive ──────────────────────────────── */
 
-@media (max-width: 640px) {
-  .wrap {
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 32px;
     width: calc(100% - 40px);
-    padding-bottom: 48px;
+    padding: 28px 0 48px;
   }
 
-  .intro,
-  .interests,
-  .note,
-  .pub,
-  .service,
-  .foot {
-    margin-left: 0;
+  .sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 20px;
+    align-items: center;
   }
 
-  .topbar {
-    gap: 12px;
-    padding-top: 28px;
+  .avatar {
+    width: 128px;
+    margin: 0;
+    grid-row: 1 / span 3;
   }
 
   .name {
-    font-size: 27px;
-    line-height: 36px;
+    font-size: 26px;
+    line-height: 34px;
   }
 
-  .nav {
-    gap: 6px 24px;
-    font-size: 16px;
-    align-items: center;
+  .tagline {
+    margin-bottom: 8px;
   }
 
-  .nav a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 32px;
+  .links-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 18px;
+    padding-top: 0;
+    border-top: 0;
   }
 
-  .intro {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 24px;
-    gap: 20px;
-  }
-
-  .face {
-    flex-basis: auto;
-    width: 136px;
-  }
-
-  .bio p {
-    text-wrap: auto;
+  .links-list li {
+    padding: 2px 0;
   }
 
   h2 {
@@ -588,6 +599,33 @@ h2 {
   .interests li {
     padding-left: 17px;
     margin-bottom: 10px;
+  }
+
+  .rows li {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 7px 0;
+  }
+
+  .rows .t {
+    text-align: left;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .sidebar {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 10px;
+  }
+
+  .avatar {
+    width: 136px;
+    grid-row: auto;
+  }
+
+  .bio p {
+    text-wrap: auto;
   }
 
   .pub {
@@ -631,16 +669,6 @@ h2 {
 
   .links button::after {
     margin-top: 3px;
-  }
-
-  .service li {
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding: 7px 0;
-  }
-
-  .service .t {
-    text-align: left;
   }
 
   .viewer {

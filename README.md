@@ -1,14 +1,14 @@
 # Yang Zhang — Personal Website
 
-Static academic homepage for GitHub Pages, laid out like a single-column
-CSE-style page: name and profile links on top, photo and bio, current
-research interests, publications with figure thumbnails, and service.
-All content is data-driven.
+Static academic homepage for GitHub Pages with a two-column layout: a sticky
+left sidebar (photo, name, contact links) and a content column with about,
+education, current research interests, publications with figure thumbnails,
+honors, and service. All content is data-driven.
 
 ## Files
 
 - `index.html` — page skeleton (sections only; no content)
-- `data/profile.js` — **all content**: name, links, bio, interests, publications, service
+- `data/profile.js` — **all content**: name, links, bio, education, interests, publications, honors, service
 - `script.js` — renders `data/profile.js` into the page (TL;DR / citation panels, figure viewer)
 - `styles.css` — styling
 - `assets/profile.jpg` — square portrait (hidden automatically if absent)
@@ -20,12 +20,14 @@ All content is data-driven.
 
 Edit `data/profile.js`:
 
-- `basics` — email, Scholar / LinkedIn / GitHub / CV links (`null` hides a link)
+- `basics` — tagline, location, email, Scholar / LinkedIn / GitHub / CV links (`null` hides a link)
 - `bio` — array of paragraphs (HTML allowed)
+- `education` — `{ degree, school, note, when }` entries
 - `interests` — array of HTML bullets; write `[[id]]` or `[[id1,id2]]` to cite
   publications by their `id` (rendered as numbered links)
 - `publications` — `{ id, title, authors, venue, award, thumb, tldr, paper, website, code, talk, citation }`;
   wrap your own name in `<strong>`; `null` fields are skipped; entries are numbered in order
+- `honors` — `{ text, note, when }` entries
 - `service` — `{ role, venue, when }` entries
 - `footer.updated` — the "Last updated" line
 

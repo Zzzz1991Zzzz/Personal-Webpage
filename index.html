@@ -19,7 +19,7 @@
     <meta property="og:image" content="assets/profile.jpg" />
     <meta property="og:image:alt" content="Portrait of Yang Zhang" />
     <script>document.documentElement.classList.add("js");</script>
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -30,45 +30,50 @@
           "name": "Yang Zhang",
           "jobTitle": "M.S. Student",
           "affiliation": { "@type": "CollegeOrUniversity", "name": "University of California San Diego", "url": "https://ucsd.edu/" },
-          "sameAs": ["https://github.com/Zzzz1991Zzzz"],
+          "sameAs": ["https://scholar.google.com/citations?user=IVB_6X4AAAAJ&hl=en", "https://www.linkedin.com/in/yang-zhang-8b2181442/"],
           "knowsAbout": ["Language models", "Reinforcement learning", "LLM serving", "AI for science"]
         }
       }
     </script>
   </head>
   <body>
-    <main class="wrap">
-      <!-- Name and profile links -->
-      <header class="topbar">
-        <h1 class="name" id="full-name">Yang Zhang</h1>
-        <nav class="nav" id="nav" aria-label="Contact and profiles"></nav>
-      </header>
-
-      <!-- Photo and bio -->
-      <section class="intro" aria-label="About">
-        <div class="face" id="portrait">
+    <div class="layout">
+      <!-- Left column: photo, name, contact links -->
+      <aside class="sidebar" aria-label="Profile">
+        <div class="avatar" id="portrait">
           <img alt="Portrait of Yang Zhang" width="600" height="600" decoding="async" />
         </div>
+        <h1 class="name" id="full-name">Yang Zhang</h1>
+        <p class="tagline" id="tagline"></p>
+        <ul class="links-list" id="profile-links"></ul>
+      </aside>
+
+      <!-- Right column: content -->
+      <main class="content">
+        <h2 class="display" id="about">About me</h2>
         <div class="bio" id="bio"></div>
-      </section>
 
-      <!-- Research interests -->
-      <h2 class="display" id="research">Current Research Interests</h2>
-      <div class="interests"><ul id="interests-list"></ul></div>
+        <h2 class="display" id="research">Current Research Interests</h2>
+        <div class="interests"><ul id="interests-list"></ul></div>
 
-      <!-- Publications -->
-      <h2 class="display" id="publications">Publications</h2>
-      <p class="note" id="pub-note">* indicates equal contribution.</p>
-      <div id="publications-list"></div>
+        <h2 class="display" id="publications">Publications</h2>
+        <p class="note" id="pub-note">* indicates equal contribution.</p>
+        <div id="publications-list"></div>
 
-      <!-- Service -->
-      <h2 class="display" id="service">Service</h2>
-      <ul class="service" id="service-list"></ul>
+        <h2 class="display" id="education">Education</h2>
+        <ul class="rows" id="education-list"></ul>
 
-      <footer class="foot">
-        <p id="footer-updated"></p>
-      </footer>
-    </main>
+        <h2 class="display" id="honors">Honors and Awards</h2>
+        <ul class="rows" id="honors-list"></ul>
+
+        <h2 class="display" id="service">Service</h2>
+        <ul class="rows" id="service-list"></ul>
+
+        <footer class="foot">
+          <p id="footer-updated"></p>
+        </footer>
+      </main>
+    </div>
 
     <span class="sr-only" id="announce" aria-live="polite"></span>
     <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Figure" hidden>
