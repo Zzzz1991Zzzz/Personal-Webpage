@@ -11,3 +11,9 @@ cv/*.pdf
 
 # Original photo (the cropped web copy is assets/profile.jpg)
 personal picture.jpg
+
+# Paper PDFs dropped in for reference (submissions under review; large files)
+My paper/
+
+# Finder metadata
+.DS_Store

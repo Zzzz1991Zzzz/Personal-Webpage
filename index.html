@@ -2,69 +2,79 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Yang Zhang</title>
     <meta
       name="description"
-      content="Academic website of Yang Zhang, M.S. student in Computer Engineering at UC San Diego working on NLP, large language models, and reinforcement learning."
+      content="Yang Zhang is a Computer Engineering master's student at UC San Diego working on LLM post-training, reinforcement learning with verifiable rewards, efficient LLM serving, and AI for science."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
+    <meta name="author" content="Yang Zhang" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Yang Zhang" />
+    <meta
+      property="og:description"
+      content="Yang Zhang is a Computer Engineering master's student at UC San Diego working on LLM post-training, reinforcement learning with verifiable rewards, efficient LLM serving, and AI for science."
     />
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <meta property="og:image" content="assets/profile.jpg" />
+    <meta property="og:image:alt" content="Portrait of Yang Zhang" />
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="styles.css?v=3" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Yang Zhang",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Yang Zhang",
+          "jobTitle": "M.S. Student",
+          "affiliation": { "@type": "CollegeOrUniversity", "name": "University of California San Diego", "url": "https://ucsd.edu/" },
+          "sameAs": ["https://github.com/Zzzz1991Zzzz"],
+          "knowsAbout": ["Language models", "Reinforcement learning", "LLM serving", "AI for science"]
+        }
+      }
+    </script>
   </head>
   <body>
-    <main class="container">
-      <!-- Header / Identity -->
-      <header class="site-header">
-        <div class="header-main">
-          <div class="header-identity">
-            <h1 id="full-name">Yang Zhang</h1>
-            <p class="affiliation" id="affiliation"></p>
-            <p class="affiliation" id="email-line"></p>
-            <nav class="header-links" id="header-links" aria-label="Profile links"></nav>
-          </div>
-          <div class="portrait" id="portrait">
-            <img alt="Portrait of Yang Zhang" width="600" height="600" decoding="async" />
-          </div>
-        </div>
+    <main class="wrap">
+      <!-- Name and profile links -->
+      <header class="topbar">
+        <h1 class="name" id="full-name">Yang Zhang</h1>
+        <nav class="nav" id="nav" aria-label="Contact and profiles"></nav>
       </header>
 
-      <!-- Bio -->
-      <section class="bio" id="bio"></section>
-
-      <!-- News -->
-      <section class="section" id="news-section">
-        <h2>News</h2>
-        <ul class="news-list" id="news-list"></ul>
+      <!-- Photo and bio -->
+      <section class="intro" aria-label="About">
+        <div class="face" id="portrait">
+          <img alt="Portrait of Yang Zhang" width="600" height="600" decoding="async" />
+        </div>
+        <div class="bio" id="bio"></div>
       </section>
+
+      <!-- Research interests -->
+      <h2 class="display" id="research">Current Research Interests</h2>
+      <div class="interests"><ul id="interests-list"></ul></div>
 
       <!-- Publications -->
-      <section class="section" id="publications-section">
-        <h2>Publications</h2>
-        <p class="section-note">
-          * indicates equal contribution. You may also refer to my
-          <a id="scholar-link-pub" href="#" target="_blank" rel="noopener">Google Scholar</a> page.
-        </p>
-        <div id="publications-list"></div>
-      </section>
+      <h2 class="display" id="publications">Publications</h2>
+      <p class="note" id="pub-note">* indicates equal contribution.</p>
+      <div id="publications-list"></div>
 
       <!-- Service -->
-      <section class="section" id="service-section">
-        <h2>Service</h2>
-        <ul class="service-list" id="service-list"></ul>
-      </section>
+      <h2 class="display" id="service">Service</h2>
+      <ul class="service" id="service-list"></ul>
+
+      <footer class="foot">
+        <p id="footer-updated"></p>
+      </footer>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <hr />
-        <p class="footer-text" id="footer-updated">Last updated September 2026.</p>
-      </div>
-    </footer>
+    <span class="sr-only" id="announce" aria-live="polite"></span>
+    <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Figure" hidden>
+      <button class="viewer-close" type="button" aria-label="Close figure">&times;</button>
+      <img alt="" />
+    </div>
 
     <script src="data/profile.js"></script>
     <script src="script.js"></script>
