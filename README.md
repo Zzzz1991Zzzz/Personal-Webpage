@@ -31,6 +31,9 @@ Edit `data/profile.js`:
 - `service` — `{ role, venue, when }` entries
 - `footer.updated` — the "Last updated" line
 
+After changing `data/profile.js` or `script.js`, bump the `?v=` date on the two
+`<script src>` tags in `index.html`; otherwise browsers keep the cached copy for a while.
+
 To add a thumbnail, crop the paper's key figure to roughly 1200 px wide, save it
 under `assets/pubs/`, and point `thumb.src` at it (set `width`/`height` to its pixel size).
 
