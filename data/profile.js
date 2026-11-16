@@ -24,7 +24,7 @@ window.profileData = {
     scholar: "https://scholar.google.com/citations?user=IVB_6X4AAAAJ&hl=en",
     linkedin: "https://www.linkedin.com/in/yang-zhang-8b2181442/",
     github: null,
-    cv: null, // CV is not published on the site; it is sent directly on request
+    cv: "Yang_Zhang_CV.pdf", // copy of cv/Yang_Zhang_CV_v2.pdf (see cv/build.sh --publish)
     // Square portrait; the block is hidden automatically if the file is missing.
     portrait: "assets/profile.jpg",
   },

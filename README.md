@@ -13,13 +13,14 @@ honors, and service. All content is data-driven.
 - `styles.css` — styling
 - `assets/profile.jpg` — square portrait (hidden automatically if absent)
 - `assets/pubs/` — one figure thumbnail per publication (about 1200 px wide)
-- `cv/` — CV sources (`Yang_Zhang_CV.tex`, and `Yang_Zhang_CV_v2.tex` listing both bachelor degrees); the built PDFs stay in `cv/` and are not published on the site
+- `Yang_Zhang_CV.pdf` — CV linked from the header; a copy of the v2 build (both bachelor degrees)
+- `cv/` — CV sources: `Yang_Zhang_CV_v2.tex` (both bachelor degrees, published on the site) and `Yang_Zhang_CV.tex` (UESTC degree only); built PDFs stay in `cv/`
 
 ## Updating content
 
 Edit `data/profile.js`:
 
-- `basics` — tagline, location, email, Scholar / LinkedIn / GitHub / CV links (`null` hides a link; `cv` is `null` because the CV is sent directly rather than hosted)
+- `basics` — tagline, location, email, Scholar / LinkedIn / GitHub / CV links (`null` hides a link)
 - `bio` — array of paragraphs (HTML allowed)
 - `education` — `{ degree, school, note, when }` entries
 - `interests` — array of HTML bullets; write `[[id]]` or `[[id1,id2]]` to cite
@@ -36,11 +37,11 @@ under `assets/pubs/`, and point `thumb.src` at it (set `width`/`height` to its p
 ## Building the CV
 
 ```bash
-./cv/build.sh            # cv/Yang_Zhang_CV.pdf
-./cv/build.sh Yang_Zhang_CV_v2
+./cv/build.sh --publish            # builds cv/Yang_Zhang_CV_v2.pdf and copies it to Yang_Zhang_CV.pdf
+./cv/build.sh Yang_Zhang_CV        # builds the single-degree version into cv/ only
 ```
 
-The PDF is written next to the source (gitignored) and is not linked from the site.
+Built PDFs are written next to the source (gitignored); only the published copy at the root is tracked.
 Uses `pdflatex` if installed, otherwise `tectonic` (`brew install tectonic`).
 The `.sty` files in `cv/` are vendored from CTAN so the CV compiles on a
 minimal TeX install.

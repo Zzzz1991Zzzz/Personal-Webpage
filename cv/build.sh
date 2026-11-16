@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
-# Compile a CV source into a PDF next to it (cv/*.pdf is gitignored; the
-# CV is not published on the site). Usage: ./cv/build.sh [Yang_Zhang_CV_v2]
+# Compile a CV source into a PDF next to it (cv/*.pdf is gitignored).
+# Usage: ./cv/build.sh [Yang_Zhang_CV|Yang_Zhang_CV_v2] [--publish]
+#   --publish also copies the PDF to ../Yang_Zhang_CV.pdf, the file the
+#   site links to (currently the v2 CV, which lists both bachelor degrees).
 # Uses pdflatex when available, otherwise tectonic (brew install tectonic).
 set -euo pipefail
 cd "$(dirname "$0")"
-name="${1:-Yang_Zhang_CV}"
+name="Yang_Zhang_CV_v2"; publish=0
+for arg in "$@"; do
+  case "$arg" in
+    --publish) publish=1 ;;
+    *) name="${arg%.tex}" ;;
+  esac
+done
 if command -v pdflatex >/dev/null 2>&1; then
   pdflatex -interaction=nonstopmode -halt-on-error "$name.tex" >/dev/null
   pdflatex -interaction=nonstopmode -halt-on-error "$name.tex" >/dev/null
@@ -22,3 +30,7 @@ else
 fi
 rm -f "$name.aux" "$name.log" "$name.out"
 echo "Built cv/$name.pdf"
+if [ "$publish" = 1 ]; then
+  cp "$name.pdf" ../Yang_Zhang_CV.pdf
+  echo "Copied to ../Yang_Zhang_CV.pdf (linked from the site)"
+fi
