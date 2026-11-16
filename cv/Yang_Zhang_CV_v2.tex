@@ -1,0 +1,205 @@
+% Yang Zhang -- Curriculum Vitae (version 2: lists both bachelor degrees from the UESTC-Glasgow joint programme)
+% Build:  ./cv/build.sh Yang_Zhang_CV_v2   (uses pdflatex if installed, otherwise tectonic)
+% The .sty files in this folder are vendored copies from CTAN so the CV
+% compiles on a minimal TeX install; they are ignored if your TeX
+% distribution already provides them.
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.45in,top=0.4in,bottom=0.4in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{linkblue}{HTML}{00629B}
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue,
+  pdftitle={Yang Zhang -- CV}, pdfauthor={Yang Zhang}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\footnotesize Page \thepage\ of \pageref{LastPage}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{3em}
+\raggedbottom
+% Slightly below 10pt so the CV fits on two pages (9.4pt here: the extra degree line needs the room).
+\AtBeginDocument{\fontsize{9.4}{11.2}\selectfont}
+
+% Section headings: bold title with a rule beneath.
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-7pt}\rule{\linewidth}{0.5pt}]
+\titlespacing*{\section}{0pt}{5pt}{3pt}
+
+% Compact lists.
+\setlist[itemize]{leftmargin=1.1em, itemsep=0.5pt, parsep=0pt, topsep=1pt, label=\textbullet}
+
+% Two-line entry: bold title + right-aligned dates; second line + right text.
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\
+    #3 & #4 \\
+  \end{tabularx}\par}
+% One-line entry: bold title + right-aligned text.
+\newcommand{\entryone}[2]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\
+  \end{tabularx}\par}
+% Project line inside an experience block: bold title, italic venue/role tag.
+\newcommand{\project}[2]{%
+  \vspace{2pt}%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textit{#2} \\
+  \end{tabularx}\par}
+% Theme label grouping several projects.
+\newcommand{\theme}[1]{\vspace{2pt}\textit{\textbf{#1}}\par}
+% Publication entry: tag, title, authors, venue line (with links).
+\newcommand{\pubentry}[4]{%
+  \par\vspace{2pt}%
+  {\hangindent=1.2em\hangafter=1
+   \textbf{[#1]} \textbf{#2}\\
+   #3\\
+   #4\par}}
+\newcommand{\pubgroup}[1]{\vspace{3pt}\textit{\textbf{#1}}\par}
+
+\newcommand{\me}{\textbf{Yang Zhang}}
+\newcommand{\lk}[2]{\href{#1}{[#2]}}
+
+\begin{document}
+
+% ---------------------------------------------------------------- Header
+\begin{center}
+  {\LARGE\bfseries Yang Zhang}\\[3pt]
+  \href{mailto:yaz124@ucsd.edu}{yaz124@ucsd.edu} \,|\,
+  +1 858 241 5918 \,|\,
+  \href{https://zzzz1991zzzz.github.io/Personal-Webpage/}{zzzz1991zzzz.github.io/Personal-Webpage} \,|\,
+  \href{https://scholar.google.com/citations?user=IVB_6X4AAAAJ&hl=en}{Google Scholar} \,|\,
+  \href{https://www.linkedin.com/in/yang-zhang-8b2181442/}{LinkedIn}\\[2pt]
+  M.S.\ student in Computer Engineering at UC San Diego \,|\, LLM post-training, RL with verifiable rewards, and efficient serving
+\end{center}
+
+% ---------------------------------------------------------------- Education
+\section{Education}
+\entry{University of California San Diego}{Dec.\ 2025 -- Present}
+      {M.S.\ in Computer Engineering; GPA 3.94/4.00. Advisor: Ramamohan Paturi.}{La Jolla, CA}
+\vspace{2pt}
+\entry{University of Glasgow}{Sept.\ 2021 -- Jun.\ 2025}
+      {B.Eng.\ in Electronics and Electrical Engineering, First Class Honours; UESTC--Glasgow joint programme.}{Chengdu, China}
+\vspace{2pt}
+\entry{University of Electronic Science and Technology of China (UESTC)}{Sept.\ 2021 -- Jun.\ 2025}
+      {B.Eng.\ in Communication Engineering; GPA 3.78/4.00 (top 10\%). GRE 330; IELTS 8.0.}{Chengdu, China}
+
+% ---------------------------------------------------------------- Research experience
+\section{Research Experience}
+\entry{UC San Diego, Laboratory for Emerging Intelligence}{2026 -- Present}
+      {Research Assistant (Advisor: Ramamohan Paturi)}{La Jolla, CA}
+
+\theme{RL for LLM reasoning}
+\project{What rollout tokens buy in RLVR}{Under review, ICLR 2027; co-first author}
+\begin{itemize}
+  \item Studied GRPO on competition mathematics with SmolLM3-3B (full-parameter, verl) and Qwen3.5-9B/35B-A3B (LoRA), scoring every model by majority-vote accuracy under a fixed budget of generated tokens per problem.
+  \item Replacing one third of SmolLM3-3B's training problems with harder ones doubled response length (+101\%) on the unchanged 2,048 problems at a similar training reward.
+  \item Halving Qwen3.5-9B's training response limit from 4,096 to 2,048 tokens cut training compute by 28\% and raised majority-vote accuracy at 16,384 tokens per problem from 36.1\% to 43.5\%.
+  \item Showed that coverage and majority vote can rank a base model and its RL-trained version in opposite orders (57 vs.\ 39 problems with any correct sample; 5 vs.\ 18 correct majority answers).
+\end{itemize}
+\project{QbQ: self-evolving curriculum for RL fine-tuning}{arXiv 2026, under review at AAAI 2027; co-first author}
+\begin{itemize}
+  \item Co-developed Question-begets-Question (QbQ): a teacher rewrites existing problems into diverse variants, and each round seeds new problems from those the current checkpoint can mostly solve ($8 \le$ pass@16 $\le 15$).
+  \item Trained Qwen2.5-Math-7B with GRPO on problem statements and final answers only, never on teacher reasoning traces; under the same 6,000-problem budget the curriculum lifted AIME pass@1 from 5.6\% to 16.5\%, past the 12.5--14.5\% ceiling of static augmentation, with no saturation after 20 rounds.
+\end{itemize}
+
+\theme{Benchmarks and AI for science}
+\project{CT Open: live, decontaminated clinical-trial forecasting}{COLM 2026}
+\begin{itemize}
+  \item Contributed to a live platform that runs four challenges a year and scores only predictions submitted before a trial's results became public; released a training set and two time-stamped test benchmarks (Winter 2025 and Summer 2025).
+  \item Contributed to the automated decontamination pipeline (temporal filters, iterative LLM web search, expert review); a manual audit found no pre-cutoff results for 49 of 50 sampled trials.
+\end{itemize}
+\project{DeepImagine: counterfactual imagination for clinical-trial prediction}{Under review, ICLR 2027}
+\begin{itemize}
+  \item Predicts a target trial's outcome from a historical trial by changing one differing factor at a time (enrollment, study arm, outcome measure); with seven anchors, lifts GPT-5 from 72.4 (RAG) to 79.0 macro-F1 on 701 CT Open questions.
+  \item Contributed to per-factor Gemma-3-12B specialists trained on natural counterfactuals from 14,000 trials with GPT-5 reasoning traces; the trained system reaches 78.7 macro-F1, above all ten conventional and clinical predictors.
+\end{itemize}
+
+\theme{Interpretability}
+\project{Latent Assembly: executable operations in language models}{Under review, ICLR 2027; second author}
+\begin{itemize}
+  \item Contributed to a causal framework that recovers typed program states and state-dependent operations from unlabeled activations, validated on compiled transformers and on SELECT and LOAD operations in Qwen, Gemma and Llama.
+  \item LOAD, ADD and COMPARE operations discovered independently on separate tasks in Qwen2.5-14B link into a chain that executes a held-out program at 84\% accuracy vs.\ 49\% zero-shot, with no target-task fitting.
+\end{itemize}
+
+\vspace{3pt}
+\entry{Efficient LLM serving (collaboration with Harvard University)}{2026}
+      {LoopKV: loop-aware KV cache compression for looped transformers}{arXiv 2026; OSDI 2027 (in prep.); co-first author}
+\begin{itemize}
+  \item Characterized Ouro's per-loop KV cache: quantization sensitivity varies per (loop, layer) cell and adds up to the output KL, later loops tolerate sharing the final loop's KV, and read errors compound across loops (4.7$\times$ less damage at equal bytes when low-attention values are read at 2 bits rather than skipped).
+  \item Co-designed an offline profiler and knapsack planner that assign INT4, INT2 or KV sharing to each cell, attention-aware V precision at decode time, and one fused vLLM kernel that executes every cell type in a single launch (host launches per decode step from 504 to 17 with CUDA graphs).
+  \item On Ouro-1.4B (one RTX PRO 6000), LoopKV-M stores 35\% less KV than uniform INT4 (KIVI-4) and sustains 1.7--2.2$\times$ its goodput under a 16K latency SLO; 1.13--4.44$\times$ BF16 decode throughput on three looped models with no suite average significantly below BF16.
+\end{itemize}
+
+\vspace{3pt}
+\entry{Institute of Computing Technology, Chinese Academy of Sciences}{Jul.\ 2024 -- Aug.\ 2024}
+      {Research Assistant, State Key Laboratory of Processors}{Beijing, China}
+\begin{itemize}
+  \item Developed and optimized image signal processing algorithms (noise reduction, sharpening, color correction) in Python, MATLAB and C for embedded systems built around CMOS image sensors.
+\end{itemize}
+\vspace{2pt}
+\entry{Institute of Computing Technology, Chinese Academy of Sciences}{Aug.\ 2023 -- Nov.\ 2023}
+      {Research Assistant, Center for Advanced Computer Systems}{Beijing, China}
+\begin{itemize}
+  \item Improved the Maximum Information Coefficient (MIC) algorithm for identifying and visualizing correlations across datasets, and optimized the data-processing workflow for accuracy and efficiency.
+\end{itemize}
+
+% ---------------------------------------------------------------- Publications
+\section{Publications}
+* equal contribution
+
+\pubgroup{Under review and preprints}
+\pubentry{arXiv 2026}{LoopKV: Loop-Aware KV Cache Compression for Serving Looped Transformers}
+  {Tianle Zhou*, \me*, Tianyu Wu*, Zhuohan Wang*, William Nixon, Juncheng Yang.}
+  {arXiv preprint arXiv:2611.04137, 2026; in preparation for submission to OSDI 2027. \lk{https://arxiv.org/abs/2611.04137}{arXiv}}
+\pubentry{Under review}{What Do Rollout Tokens Buy? Hidden Costs and Budgeted Accuracy in RLVR}
+  {\me*, et al.\ (co-first author; co-authors withheld during double-blind review).}
+  {Under review at the International Conference on Learning Representations (ICLR) 2027.}
+\pubentry{Under review}{Latent Assembly: Causal Discovery and Cross-Task Linking of Executable Operations in Language Models}
+  {\me\ (second author), et al.\ (co-authors withheld during double-blind review).}
+  {Under review at ICLR 2027.}
+\pubentry{Under review}{DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations}
+  {\me, et al.\ (co-authors withheld during double-blind review).}
+  {Under review at ICLR 2027. arXiv:2604.23054. \lk{https://arxiv.org/abs/2604.23054}{arXiv} \lk{https://github.com/deepimagine-counterfactual/DeepImagine}{Code}}
+\pubentry{arXiv 2026}{Question Begets Question: Self-Evolving Curriculum for Reinforcement Fine-Tuning on Competition Mathematics}
+  {Longtian Bao*, Jianyou Wang*, \me*, Youze Zheng*, Ramamohan Paturi.}
+  {arXiv preprint arXiv:2608.01522, 2026; under review at AAAI 2027. \lk{https://arxiv.org/abs/2608.01522}{arXiv}}
+
+\pubgroup{Conference papers}
+\pubentry{COLM 2026}{CT Open: An Open-Access, Uncontaminated, Live Platform for the Open Challenge of Clinical Trial Outcome Prediction}
+  {Jianyou Wang*, Youze Zheng*, Longtian Bao*, Hanyuan Zhang*, Qirui Zheng, Yuhan Chen, \me, Matthew Feng, Maxim Khan, Aditya K.\ Sehgal, Christopher D.\ Rosin, Ramamohan Paturi, Umber Dube, Leon Bergen.}
+  {Conference on Language Modeling (COLM), 2026. \lk{https://arxiv.org/abs/2604.16742}{arXiv} \lk{https://ct-open.net/}{Benchmark} \lk{https://github.com/ClinicalTrial-OpenChallenge/CT_Open}{Code}}
+\pubentry{ICAACE 2025}{Improved RT-DETR Based on MobileNetV4 for Vehicle Detection}
+  {\me.}
+  {2025 8th International Conference on Advanced Algorithms and Control Engineering (ICAACE), IEEE, 2025, pp.\ 901--906. \lk{https://doi.org/10.1109/ICAACE65325.2025.11019497}{IEEE Xplore}}
+
+% ---------------------------------------------------------------- Skills
+\section{Skills}
+\begin{itemize}
+  \item \textbf{Post-training:} GRPO/RLVR (verl), SFT, LoRA, synthetic data and self-evolving curricula, pass@$k$ and majority-vote evaluation under token budgets, benchmark construction and decontamination, LLM-as-judge.
+  \item \textbf{Serving and systems:} vLLM, KV-cache quantization and sharing, fused attention kernels, CUDA graphs, throughput/goodput measurement under latency SLOs.
+  \item \textbf{Large-scale experiments:} extensive hands-on experience running multi-GPU training, evaluation and serving experiments on 8$\times$H100 nodes (RL post-training with verl, vLLM serving benchmarks).
+  \item \textbf{Tools:} PyTorch, Hugging Face Transformers, vLLM, NumPy, pandas, scikit-learn, Git \,|\, \textbf{Languages:} Python, C, MATLAB, Bash, \LaTeX.
+  \item \textbf{Computer vision:} real-time object detection (RT-DETR, MobileNetV4); image signal processing.
+\end{itemize}
+
+% ---------------------------------------------------------------- Honors
+\section{Honors and Awards}
+1st Place, UCSD x Medeloop Health Research Competition, 2026 \,|\, UESTC Merit Scholarship for Exceptional Student (top 10\%), 2024 \,|\, UESTC Merit Scholarship (top 30\%), 2022 and 2023 \,|\, Hainan Free Trade Port Merit Scholarship (top 10\%), 2022
+
+% ---------------------------------------------------------------- Service
+\section{Service}
+Reviewer, ICLR 2027 \,|\, Reviewer, AAAI 2027 \,|\, Student Volunteer (session monitor), ACL 2026, San Diego, CA
+
+\end{document}

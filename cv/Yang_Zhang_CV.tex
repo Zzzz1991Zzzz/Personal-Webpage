@@ -5,7 +5,7 @@
 % distribution already provides them.
 \documentclass[10pt,letterpaper]{article}
 
-\usepackage[margin=0.5in,top=0.45in,bottom=0.45in]{geometry}
+\usepackage[margin=0.45in,top=0.4in,bottom=0.4in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -90,7 +90,7 @@
       {M.S.\ in Computer Engineering; GPA 3.94/4.00. Advisor: Ramamohan Paturi.}{La Jolla, CA}
 \vspace{2pt}
 \entry{University of Electronic Science and Technology of China (UESTC)}{Sept.\ 2021 -- Jun.\ 2025}
-      {B.Eng.\ in Communication Engineering; GPA 3.8/4.0 (top 10\%). GRE 330; IELTS 8.0.}{Chengdu, China}
+      {B.Eng.\ in Communication Engineering; GPA 3.78/4.00 (top 10\%). GRE 330; IELTS 8.0.}{Chengdu, China}
 
 % ---------------------------------------------------------------- Research experience
 \section{Research Experience}
@@ -98,7 +98,7 @@
       {Research Assistant (Advisor: Ramamohan Paturi)}{La Jolla, CA}
 
 \theme{RL for LLM reasoning}
-\project{What rollout tokens buy in RLVR}{Under review, ICLR 2027}
+\project{What rollout tokens buy in RLVR}{Under review, ICLR 2027; co-first author}
 \begin{itemize}
   \item Studied GRPO on competition mathematics with SmolLM3-3B (full-parameter, verl) and Qwen3.5-9B/35B-A3B (LoRA), scoring every model by majority-vote accuracy under a fixed budget of generated tokens per problem.
   \item Replacing one third of SmolLM3-3B's training problems with harder ones doubled response length (+101\%) on the unchanged 2,048 problems at a similar training reward.
@@ -124,7 +124,7 @@
 \end{itemize}
 
 \theme{Interpretability}
-\project{Latent Assembly: executable operations in language models}{Under review, ICLR 2027}
+\project{Latent Assembly: executable operations in language models}{Under review, ICLR 2027; second author}
 \begin{itemize}
   \item Contributed to a causal framework that recovers typed program states and state-dependent operations from unlabeled activations, validated on compiled transformers and on SELECT and LOAD operations in Qwen, Gemma and Llama.
   \item LOAD, ADD and COMPARE operations discovered independently on separate tasks in Qwen2.5-14B link into a chain that executes a held-out program at 84\% accuracy vs.\ 49\% zero-shot, with no target-task fitting.
@@ -132,7 +132,7 @@
 
 \vspace{3pt}
 \entry{Efficient LLM serving (collaboration with Harvard University)}{2026}
-      {LoopKV: loop-aware KV cache compression for looped transformers}{arXiv 2026; co-first author}
+      {LoopKV: loop-aware KV cache compression for looped transformers}{arXiv 2026; OSDI 2027 (in prep.); co-first author}
 \begin{itemize}
   \item Characterized Ouro's per-loop KV cache: quantization sensitivity varies per (loop, layer) cell and adds up to the output KL, later loops tolerate sharing the final loop's KV, and read errors compound across loops (4.7$\times$ less damage at equal bytes when low-attention values are read at 2 bits rather than skipped).
   \item Co-designed an offline profiler and knapsack planner that assign INT4, INT2 or KV sharing to each cell, attention-aware V precision at decode time, and one fused vLLM kernel that executes every cell type in a single launch (host launches per decode step from 504 to 17 with CUDA graphs).
@@ -159,12 +159,12 @@
 \pubgroup{Under review and preprints}
 \pubentry{arXiv 2026}{LoopKV: Loop-Aware KV Cache Compression for Serving Looped Transformers}
   {Tianle Zhou*, \me*, Tianyu Wu*, Zhuohan Wang*, William Nixon, Juncheng Yang.}
-  {arXiv preprint arXiv:2611.04137, 2026. \lk{https://arxiv.org/abs/2611.04137}{arXiv}}
+  {arXiv preprint arXiv:2611.04137, 2026; in preparation for submission to OSDI 2027. \lk{https://arxiv.org/abs/2611.04137}{arXiv}}
 \pubentry{Under review}{What Do Rollout Tokens Buy? Hidden Costs and Budgeted Accuracy in RLVR}
-  {\me, et al.\ (co-authors withheld during double-blind review).}
+  {\me*, et al.\ (co-first author; co-authors withheld during double-blind review).}
   {Under review at the International Conference on Learning Representations (ICLR) 2027.}
 \pubentry{Under review}{Latent Assembly: Causal Discovery and Cross-Task Linking of Executable Operations in Language Models}
-  {\me, et al.\ (co-authors withheld during double-blind review).}
+  {\me\ (second author), et al.\ (co-authors withheld during double-blind review).}
   {Under review at ICLR 2027.}
 \pubentry{Under review}{DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations}
   {\me, et al.\ (co-authors withheld during double-blind review).}
@@ -186,8 +186,9 @@
 \begin{itemize}
   \item \textbf{Post-training:} GRPO/RLVR (verl), SFT, LoRA, synthetic data and self-evolving curricula, pass@$k$ and majority-vote evaluation under token budgets, benchmark construction and decontamination, LLM-as-judge.
   \item \textbf{Serving and systems:} vLLM, KV-cache quantization and sharing, fused attention kernels, CUDA graphs, throughput/goodput measurement under latency SLOs.
+  \item \textbf{Large-scale experiments:} extensive hands-on experience running multi-GPU training, evaluation and serving experiments on 8$\times$H100 nodes (RL post-training with verl, vLLM serving benchmarks).
   \item \textbf{Tools:} PyTorch, Hugging Face Transformers, vLLM, NumPy, pandas, scikit-learn, Git \,|\, \textbf{Languages:} Python, C, MATLAB, Bash, \LaTeX.
-  \item \textbf{Computer vision:} real-time object detection (RT-DETR with a MobileNetV4 backbone: 97.3 mAP50 at 11M parameters and 27 GFLOPs, 65\% fewer parameters and 75\% less compute than RT-DETR-L; the Medium variant tops 23 compared detectors at 98.4 mAP50); image signal processing.
+  \item \textbf{Computer vision:} real-time object detection (RT-DETR, MobileNetV4); image signal processing.
 \end{itemize}
 
 % ---------------------------------------------------------------- Honors
