@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # Compile a CV source into a PDF next to it (cv/*.pdf is gitignored).
-# Usage: ./cv/build.sh [Yang_Zhang_CV|Yang_Zhang_CVOriginal] [--publish]
+# Usage: ./cv/build.sh [--publish]
 #   --publish also copies the PDF to ../Yang_Zhang_CV.pdf, the file the
-#   site links to. Yang_Zhang_CV lists both bachelor degrees (the published
-#   CV); Yang_Zhang_CVOriginal lists the UESTC degree only.
+#   site links to.
 # Uses pdflatex when available, otherwise tectonic (brew install tectonic).
 set -euo pipefail
 cd "$(dirname "$0")"
