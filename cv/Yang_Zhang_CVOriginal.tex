@@ -1,5 +1,5 @@
-% Yang Zhang -- Curriculum Vitae (version 2: lists both bachelor degrees from the UESTC-Glasgow joint programme)
-% Build:  ./cv/build.sh Yang_Zhang_CV_v2   (uses pdflatex if installed, otherwise tectonic)
+% Yang Zhang -- Curriculum Vitae (original version: UESTC degree only)
+% Build:  ./cv/build.sh Yang_Zhang_CVOriginal   (uses pdflatex if installed, otherwise tectonic)
 % The .sty files in this folder are vendored copies from CTAN so the CV
 % compiles on a minimal TeX install; they are ignored if your TeX
 % distribution already provides them.
@@ -30,8 +30,8 @@
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{3em}
 \raggedbottom
-% Slightly below 10pt so the CV fits on two pages (9.4pt here: the extra degree line needs the room).
-\AtBeginDocument{\fontsize{9.4}{11.2}\selectfont}
+% Slightly below 10pt so the CV fits on two pages.
+\AtBeginDocument{\fontsize{9.6}{11.6}\selectfont}
 
 % Section headings: bold title with a rule beneath.
 \titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-7pt}\rule{\linewidth}{0.5pt}]
@@ -78,19 +78,16 @@
   {\LARGE\bfseries Yang Zhang}\\[3pt]
   \href{mailto:yaz124@ucsd.edu}{yaz124@ucsd.edu} \,|\,
   +1 858 241 5918 \,|\,
-  \href{https://zzzz1991zzzz.github.io/Personal-Webpage/}{zzzz1991zzzz.github.io/Personal-Webpage} \,|\,
+  \href{https://zzzz1991zzzz.github.io/Personal-Webpage/}{Personal website} \,|\,
   \href{https://scholar.google.com/citations?user=IVB_6X4AAAAJ&hl=en}{Google Scholar} \,|\,
   \href{https://www.linkedin.com/in/yang-zhang-8b2181442/}{LinkedIn}\\[2pt]
-  M.S.\ student in Computer Engineering at UC San Diego \,|\, LLM post-training, RL with verifiable rewards, and efficient serving
+  M.S.\ student in Computer Engineering at UC San Diego
 \end{center}
 
 % ---------------------------------------------------------------- Education
 \section{Education}
 \entry{University of California San Diego}{Dec.\ 2025 -- Present}
       {M.S.\ in Computer Engineering; GPA 3.94/4.00. Advisor: Ramamohan Paturi.}{La Jolla, CA}
-\vspace{2pt}
-\entry{University of Glasgow}{Sept.\ 2021 -- Jun.\ 2025}
-      {B.Eng.\ in Electronics and Electrical Engineering, First Class Honours; UESTC--Glasgow joint programme.}{Chengdu, China}
 \vspace{2pt}
 \entry{University of Electronic Science and Technology of China (UESTC)}{Sept.\ 2021 -- Jun.\ 2025}
       {B.Eng.\ in Communication Engineering; GPA 3.78/4.00 (top 10\%). GRE 330; IELTS 8.0.}{Chengdu, China}
@@ -162,24 +159,24 @@
 \pubgroup{Under review and preprints}
 \pubentry{arXiv 2026}{LoopKV: Loop-Aware KV Cache Compression for Serving Looped Transformers}
   {Tianle Zhou*, \me*, Tianyu Wu*, Zhuohan Wang*, William Nixon, Juncheng Yang.}
-  {arXiv preprint arXiv:2611.04137, 2026; in preparation for submission to OSDI 2027. \lk{https://arxiv.org/abs/2611.04137}{arXiv}}
+  {arXiv preprint, 2026; in preparation for submission to OSDI 2027. \lk{https://arxiv.org/pdf/2611.04137}{pdf}}
 \pubentry{Under review}{What Do Rollout Tokens Buy? Hidden Costs and Budgeted Accuracy in RLVR}
   {\me*, et al.\ (co-first author; co-authors withheld during double-blind review).}
-  {Under review at the International Conference on Learning Representations (ICLR) 2027.}
+  {Under review at the International Conference on Learning Representations (ICLR) 2027. \lk{https://openreview.net/pdf?id=Rj3MMREfmh}{pdf}}
 \pubentry{Under review}{Latent Assembly: Causal Discovery and Cross-Task Linking of Executable Operations in Language Models}
   {\me\ (second author), et al.\ (co-authors withheld during double-blind review).}
   {Under review at ICLR 2027.}
 \pubentry{Under review}{DeepImagine: Clinical Trial Outcome Prediction via Stepwise Local Counterfactual Imaginations}
   {\me, et al.\ (co-authors withheld during double-blind review).}
-  {Under review at ICLR 2027. arXiv:2604.23054. \lk{https://arxiv.org/abs/2604.23054}{arXiv} \lk{https://github.com/deepimagine-counterfactual/DeepImagine}{Code}}
+  {Under review at ICLR 2027. \lk{https://openreview.net/pdf?id=OJOd3RDdmM}{pdf} \lk{https://github.com/deepimagine-counterfactual/DeepImagine}{Code}}
 \pubentry{arXiv 2026}{Question Begets Question: Self-Evolving Curriculum for Reinforcement Fine-Tuning on Competition Mathematics}
   {Longtian Bao*, Jianyou Wang*, \me*, Youze Zheng*, Ramamohan Paturi.}
-  {arXiv preprint arXiv:2608.01522, 2026; under review at AAAI 2027. \lk{https://arxiv.org/abs/2608.01522}{arXiv}}
+  {arXiv preprint, 2026; under review at AAAI 2027. \lk{https://arxiv.org/pdf/2608.01522}{pdf}}
 
 \pubgroup{Conference papers}
 \pubentry{COLM 2026}{CT Open: An Open-Access, Uncontaminated, Live Platform for the Open Challenge of Clinical Trial Outcome Prediction}
   {Jianyou Wang*, Youze Zheng*, Longtian Bao*, Hanyuan Zhang*, Qirui Zheng, Yuhan Chen, \me, Matthew Feng, Maxim Khan, Aditya K.\ Sehgal, Christopher D.\ Rosin, Ramamohan Paturi, Umber Dube, Leon Bergen.}
-  {Conference on Language Modeling (COLM), 2026. \lk{https://arxiv.org/abs/2604.16742}{arXiv} \lk{https://ct-open.net/}{Benchmark} \lk{https://github.com/ClinicalTrial-OpenChallenge/CT_Open}{Code}}
+  {Conference on Language Modeling (COLM), 2026. \lk{https://arxiv.org/pdf/2604.16742}{pdf} \lk{https://ct-open.net/}{Benchmark} \lk{https://github.com/ClinicalTrial-OpenChallenge/CT_Open}{Code}}
 \pubentry{ICAACE 2025}{Improved RT-DETR Based on MobileNetV4 for Vehicle Detection}
   {\me.}
   {2025 8th International Conference on Advanced Algorithms and Control Engineering (ICAACE), IEEE, 2025, pp.\ 901--906. \lk{https://doi.org/10.1109/ICAACE65325.2025.11019497}{IEEE Xplore}}
